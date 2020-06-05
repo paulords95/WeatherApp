@@ -1,0 +1,9 @@
+.searchBar {
+    font-weight: bolder;
+}
+
+#search {
+    border-radius: 3px;
+    align-content: center;
+    text-align: center;
+}

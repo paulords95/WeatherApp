@@ -1,26 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import unsplash from './api/unsplash'
+import SearchBar from './components/SearchBar'
 import './App.css';
 
 function App() {
-  return (
+  const [term, setTerm] = useState({
+    term: ''
+  })
+  const [images, setImage] = useState({
+    image: ''
+  })
+
+ const handleSearch = (e) => {
+  setTerm({term: e.target.value})
+ }
+
+ const getImage = async () => {
+  const response = await unsplash.get('/search/photos', {
+    params: { query: term.term}
+  })
+  const randImage = Math.floor(Math.random() * 11)
+
+  let imageBg
+
+  if (response.data.results[randImage] !== undefined) {
+    imageBg = response.data.results[randImage].urls.regular
+  }
+  setImage({image: imageBg}) 
+ }
+
+
+
+
+ const onSearch = (e) => {
+  e.preventDefault()
+  getImage()
+}
+  
+
+
+return (
+  <div className='bg-wrapper fadeImage' style={{backgroundImage: `url(${images.image})` }}>    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h1 id='title'>Clima Agora</h1>
+       <SearchBar
+        searchSubmit={onSearch}
+        search={handleSearch}
+       />
     </div>
-  );
+  </div>
+  )
 }
 
 export default App;
