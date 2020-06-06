@@ -12,6 +12,7 @@ const SearchBar = (props) => {
                         value={props.searchValue}
                         placeholder='Buscar localização'
                         onChange={props.search}
+                        autoComplete='off'
                     />
                 </div>
             </form>
