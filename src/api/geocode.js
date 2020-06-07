@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const getCityName = async (coords) => {
     let params =  {
-        auth: '550196903046420402501x6185',
+        auth: 'APIAuthentication',
         locate: coords,
         json: '1'
       }

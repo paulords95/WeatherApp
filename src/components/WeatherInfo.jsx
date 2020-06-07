@@ -9,8 +9,8 @@ const Forecast = (props) => {
                 <ul className='contentList'>
                     <li>Temp: <div className='temp'>{props.temp}</div></li>
                     <li>Sensação Térmica: <div className='temp'>{props.feelsLike}</div></li>
-                    <li>Mínima: <div className='temp'>{props.minTemp}</div></li>
                     <li>Máxima: <div className='temp'>{props.maxTemp}</div></li>
+                    <li>Mínima: <div className='temp'>{props.minTemp}</div></li>
                     <br></br>
                     <li id='city'>{props.city}</li>
                 </ul>

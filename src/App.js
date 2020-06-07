@@ -30,15 +30,21 @@ function App() {
       let currentCoords = `${currentLat},${currentLon}`
       const cityName = await getCityName(currentCoords)
       const currentWeather = await getWeather(cityName)
-      console.log(currentWeather)
-      setWeather({
-        city: cityName
-      })
+      console.log(currentWeather.data.main)
+      if (weather.city === '') {
+        setWeather({
+          temp: Math.floor(currentWeather.data.main.temp - 273.15) + 'ºC',
+          feelsLike: Math.floor(currentWeather.data.main.feels_like - 273.15) + 'ºC',
+          minTemp: Math.floor(currentWeather.data.main.temp_min - 273.15) + 'ºC',
+          maxTemp: Math.floor(currentWeather.data.main.temp_max - 273.15) + 'ºC',
+          city: cityName
+        })
+      }
       console.log(cityName)
     })
   }
 
-
+test()
  
 
 
@@ -71,7 +77,7 @@ function App() {
 
       const cityCoordsAll = `${cityCoodsLat}, ${cityCoodsLon} `
       const cityName = await getCityName(cityCoordsAll)
-      console.log(cityName)
+      // console.log(cityName)
       setWeather({
         temp: Math.floor(weatherResponse.temp - 273.15) + 'ºC',
         feelsLike: Math.floor(weatherResponse.feels_like - 273.15) + 'ºC',
