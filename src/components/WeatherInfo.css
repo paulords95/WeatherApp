@@ -1,15 +1,21 @@
+
 .forecast {
     color: white;
     font-weight: bolder;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 .currentWeather {
     display: flex;
     flex-direction: column;
+
 }
+
 .contentList {
-    width: max-content;
+    width: 40vh;
     margin: 0 auto;
+
 }
 
 
@@ -17,4 +23,14 @@
     display: flex;
     margin: 0 auto;
     justify-content: flex-start;
+
+}
+
+.temp {
+    margin-left: auto;
+}
+
+#city {
+    display: contents;
+    margin: 0 auto
 }
